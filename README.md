@@ -2,7 +2,7 @@
 This is a little generic search bar using RxSwift and MVVM.
 
 ## How to use it?
-As this project use [RxSwift](https://github.com/ReactiveX/RxSwift), your project *must* include this pod.
+As this project use [RxSwift](https://github.com/ReactiveX/RxSwift) and [Cartography](https://github.com/robb/Cartography), your project *must* include these pods.
 
 You can use it by integrating those two files into your project: `SearchViewModel.swift` and `SearchViewController.swift`.
 
@@ -42,7 +42,7 @@ The custom ViewModel class:
 class SportViewModel: SearchViewModel<Sport> {
     [...]
     
-    override func search(with keyword: String) {
+    override func search(with keyword: String) -> Observable<[Sport]> {
         let sports = keyword.isEmpty ? [] : [ Sport(name: "Football"),
                                               Sport(name: "Baseball"),
                                               Sport(name: "Basketball"),
