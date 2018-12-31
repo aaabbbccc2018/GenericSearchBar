@@ -45,9 +45,7 @@ class SearchViewModel<T> {
     init() {
         searchSubject
             .asObservable()
-            .filter { !$0.isEmpty }
             .distinctUntilChanged()
-            .debounce(0.5, scheduler: MainScheduler.instance)
             .flatMapLatest { [unowned self] term -> Observable<[T]> in
                 // On every call to search, the error signal is set to nil to hide the error view.
                 self.errorSubject.onNext(nil)
