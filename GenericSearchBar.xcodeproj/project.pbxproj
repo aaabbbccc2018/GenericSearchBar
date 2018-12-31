@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		5F140A6B7D8CA2922B87ECCD /* Pods_GenericSearchBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37ED6AAF6EFA4805D30E7EE6 /* Pods_GenericSearchBar.framework */; };
 		BB598BFA21CF915800D37510 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598BF921CF915800D37510 /* AppDelegate.swift */; };
-		BB598BFC21CF915800D37510 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB598BFB21CF915800D37510 /* ViewController.swift */; };
 		BB598BFF21CF915800D37510 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB598BFD21CF915800D37510 /* Main.storyboard */; };
 		BB598C0121CF915A00D37510 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB598C0021CF915A00D37510 /* Assets.xcassets */; };
 		BB598C0421CF915A00D37510 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB598C0221CF915A00D37510 /* LaunchScreen.storyboard */; };
 		BB7E694521CF928C00B14E8F /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E694421CF928C00B14E8F /* SearchViewModel.swift */; };
 		BB7E694721CF954300B14E8F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB7E694621CF954300B14E8F /* SearchViewController.swift */; };
+		BBAD7CAD21DA0D81006DC82A /* SportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD7CAC21DA0D81006DC82A /* SportsViewController.swift */; };
+		BBAD7CAF21DA0D8B006DC82A /* SportsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD7CAE21DA0D8B006DC82A /* SportsViewModel.swift */; };
+		BBAD7CB121DA0D93006DC82A /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD7CB021DA0D93006DC82A /* Sport.swift */; };
+		BBAD7CB321DA12EE006DC82A /* SportCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBAD7CB221DA12EE006DC82A /* SportCell.swift */; };
+		BBAD7CB521DA1936006DC82A /* SportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBAD7CB421DA1936006DC82A /* SportCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,13 +27,17 @@
 		7DBCC1AF9F89E2B2CD0602EB /* Pods-GenericSearchBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenericSearchBar.release.xcconfig"; path = "Pods/Target Support Files/Pods-GenericSearchBar/Pods-GenericSearchBar.release.xcconfig"; sourceTree = "<group>"; };
 		BB598BF621CF915800D37510 /* GenericSearchBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GenericSearchBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB598BF921CF915800D37510 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB598BFB21CF915800D37510 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB598BFE21CF915800D37510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB598C0021CF915A00D37510 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB598C0321CF915A00D37510 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB598C0521CF915A00D37510 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7E694421CF928C00B14E8F /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		BB7E694621CF954300B14E8F /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		BBAD7CAC21DA0D81006DC82A /* SportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewController.swift; sourceTree = "<group>"; };
+		BBAD7CAE21DA0D8B006DC82A /* SportsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsViewModel.swift; sourceTree = "<group>"; };
+		BBAD7CB021DA0D93006DC82A /* Sport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		BBAD7CB221DA12EE006DC82A /* SportCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCell.swift; sourceTree = "<group>"; };
+		BBAD7CB421DA1936006DC82A /* SportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SportCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,12 +94,24 @@
 				BB598BF921CF915800D37510 /* AppDelegate.swift */,
 				BB7E694621CF954300B14E8F /* SearchViewController.swift */,
 				BB7E694421CF928C00B14E8F /* SearchViewModel.swift */,
-				BB598BFB21CF915800D37510 /* ViewController.swift */,
+				BBAD7CAB21DA0D6D006DC82A /* Demo */,
 				BB598C0021CF915A00D37510 /* Assets.xcassets */,
 				BB598C0221CF915A00D37510 /* LaunchScreen.storyboard */,
 				BB598BFD21CF915800D37510 /* Main.storyboard */,
 			);
 			path = GenericSearchBar;
+			sourceTree = "<group>";
+		};
+		BBAD7CAB21DA0D6D006DC82A /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				BBAD7CB021DA0D93006DC82A /* Sport.swift */,
+				BBAD7CB221DA12EE006DC82A /* SportCell.swift */,
+				BBAD7CB421DA1936006DC82A /* SportCell.xib */,
+				BBAD7CAC21DA0D81006DC82A /* SportsViewController.swift */,
+				BBAD7CAE21DA0D8B006DC82A /* SportsViewModel.swift */,
+			);
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +176,7 @@
 			files = (
 				BB598C0421CF915A00D37510 /* LaunchScreen.storyboard in Resources */,
 				BB598C0121CF915A00D37510 /* Assets.xcassets in Resources */,
+				BBAD7CB521DA1936006DC82A /* SportCell.xib in Resources */,
 				BB598BFF21CF915800D37510 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,7 +230,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB7E694521CF928C00B14E8F /* SearchViewModel.swift in Sources */,
-				BB598BFC21CF915800D37510 /* ViewController.swift in Sources */,
+				BBAD7CB121DA0D93006DC82A /* Sport.swift in Sources */,
+				BBAD7CB321DA12EE006DC82A /* SportCell.swift in Sources */,
+				BBAD7CAF21DA0D8B006DC82A /* SportsViewModel.swift in Sources */,
+				BBAD7CAD21DA0D81006DC82A /* SportsViewController.swift in Sources */,
 				BB7E694721CF954300B14E8F /* SearchViewController.swift in Sources */,
 				BB598BFA21CF915800D37510 /* AppDelegate.swift in Sources */,
 			);

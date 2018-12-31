@@ -11,8 +11,8 @@ import RxSwift
 import UIKit
 
 class SearchViewController<T>: UIViewController {
-    private let searchBar = UISearchBar()
-    private let viewModel: SearchViewModel<T>
+    let searchBar = UISearchBar(frame: .zero)
+    let viewModel: SearchViewModel<T>
     private let bag = DisposeBag()
     
     var contentView: UIView {
@@ -46,6 +46,7 @@ class SearchViewController<T>: UIViewController {
         // Initial state
         errorView?.isHidden = true
         loadingView?.isHidden = true
+        view.backgroundColor = .white
     }
     
     /// Configures the searchBar by layouting it to the top of the view.
@@ -56,7 +57,7 @@ class SearchViewController<T>: UIViewController {
         
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         
-        searchBar.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 33.0).isActive = true
         searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }

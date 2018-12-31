@@ -6,4 +6,12 @@
 //  Copyright © 2018 Nicolas Mulet. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class SportCell: UITableViewCell {
+    @IBOutlet private weak var nameLabel: UILabel!
+    
+    func configure(name: String) {
+        nameLabel.text = name
+    }
+}
