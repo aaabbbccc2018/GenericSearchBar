@@ -6,12 +6,13 @@
 //  Copyright © 2018 Nicolas Mulet. All rights reserved.
 //
 
+import Cartography
 import RxCocoa
 import RxSwift
 import UIKit
 
 class SearchViewController<T>: UIViewController {
-    let searchBar = UISearchBar(frame: .zero)
+    let searchBar = UISearchBar()
     let viewModel: SearchViewModel<T>
     private let bag = DisposeBag()
     
@@ -55,11 +56,12 @@ class SearchViewController<T>: UIViewController {
         
         view.addSubview(searchBar)
         
-        searchBar.translatesAutoresizingMaskIntoConstraints = false
-        
-        searchBar.topAnchor.constraint(equalTo: view.topAnchor, constant: 33.0).isActive = true
-        searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        constrain(view, searchBar) { (view, searchBar) in
+            searchBar.top ==  view.top + 33.0
+            searchBar.leading == view.leading
+            searchBar.trailing == view.trailing
+            searchBar.height == 44.0
+        }
     }
     
     /// Binds each the views to its corresponding value in the viewModel.

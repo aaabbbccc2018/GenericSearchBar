@@ -6,6 +6,7 @@
 //  Copyright © 2018 Nicolas Mulet. All rights reserved.
 //
 
+import Cartography
 import RxCocoa
 import RxSwift
 import UIKit
@@ -18,33 +19,39 @@ class SportsViewController: SearchViewController<Sport> {
         return tableView
     }
     
-    override var loadingView: UIView {
+    private let _loadingView: UIView = {
         let view = UIView(frame: .zero)
-        let activityIndicator = UIActivityIndicatorView()
+        let activityIndicator = UIActivityIndicatorView(frame: .zero)
         activityIndicator.startAnimating()
         view.addSubview(activityIndicator)
         
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        
-        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        constrain(activityIndicator) { activityIndicator in
+            activityIndicator.edges == activityIndicator.superview!.edges
+        }
         
         return view
+    }()
+    
+    override var loadingView: UIView? {
+        return _loadingView
     }
     
-    override var errorView: UIView {
+    private let _errorView: UIView = {
         let view = UIView(frame: .zero)
         let label = UILabel(frame: .zero)
         label.textAlignment = .center
         label.text = "An error occured ⚠️"
         view.addSubview(label)
         
-        label.translatesAutoresizingMaskIntoConstraints = false
-        
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        constrain(label) { label in
+            label.edges == label.superview!.edges
+        }
         
         return view
+    }()
+    
+    override var errorView: UIView? {
+        return _errorView
     }
     
     init() {
@@ -58,26 +65,49 @@ class SportsViewController: SearchViewController<Sport> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupErrorView()
         setupTableView()
         setupObservers()
+        setupLoadingView()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         view.addSubview(tableView)
         
         tableView.tableFooterView = UIView()
         tableView.rowHeight = UITableView.automaticDimension
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        constrain(tableView, view, searchBar) { (view, superView, topView) in
+            view.top == topView.bottom
+            view.leading == superView.leading
+            view.trailing == superView.trailing
+            view.bottom == superView.bottom
+        }
         
         tableView.register(UINib(nibName: "SportCell", bundle: nil), forCellReuseIdentifier: "SportCell")
     }
     
-    func setupObservers() {
+    private func setupLoadingView() {
+        view.addSubview(_loadingView)
+        
+        constrain(tableView, _loadingView) { (tableView, view) in
+            view.edges == tableView.edges
+        }
+    }
+    
+    private func setupErrorView() {
+        view.addSubview(_errorView)
+        
+        constrain(_errorView, view, searchBar) { (view, superView, topView) in
+            view.top == topView.bottom
+            view.leading == superView.leading
+            view.trailing == superView.trailing
+            view.bottom == superView.bottom
+        }
+    }
+    
+    private func setupObservers() {
         guard let viewModel = viewModel as? SportsViewModel else {
             fatalError("Wrong viewModel type")
         }

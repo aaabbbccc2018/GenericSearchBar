@@ -5,6 +5,7 @@ use_frameworks!
 inhibit_all_warnings!
 
 def all_pods
+    pod 'Cartography'
     pod 'RxCocoa'
     pod 'RxSwift'
 end

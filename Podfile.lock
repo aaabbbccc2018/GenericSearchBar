@@ -1,21 +1,25 @@
 PODS:
+  - Cartography (3.0.2)
   - RxCocoa (4.2.0):
     - RxSwift (~> 4.0)
   - RxSwift (4.2.0)
 
 DEPENDENCIES:
+  - Cartography
   - RxCocoa
   - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Cartography
     - RxCocoa
     - RxSwift
 
 SPEC CHECKSUMS:
+  Cartography: 231190d7d0b3107ce8d67c54189f059a509b3760
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: 758db39e0412684b5e958456281a3137664f7fad
+PODFILE CHECKSUM: ae35c31eaeb96568beb2786b95e8efcd6fd918ca
 
 COCOAPODS: 1.5.2
