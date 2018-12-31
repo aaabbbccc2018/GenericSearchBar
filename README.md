@@ -1,9 +1,6 @@
 # GenericSearchBar
 This is a little generic search bar using RxSwift and MVVM.
 
-<img src="/images/search.png" align="left" height="300px" hspace="20px" vspace="100px">
-<img src="/images/error.png" align="right" height="300px" hspace="20px" vspace="100px">
-
 ## How to use it?
 As this project use [RxSwift](https://github.com/ReactiveX/RxSwift) and [Cartography](https://github.com/robb/Cartography), your project *must* include these pods.
 
@@ -84,3 +81,6 @@ class Sport {
     }
 }
 ```
+
+<img src="/images/search.png" align="left" height="400px" hspace="20px" vspace="100px">
+<img src="/images/error.png" align="left" height="400px" hspace="20px" vspace="100px">
