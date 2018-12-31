@@ -1,12 +1,15 @@
 # GenericSearchBar
 This is a little generic search bar using RxSwift and MVVM.
 
+<img src="/images/search.png" align="left" height="300px" hspace="20px" vspace="100px">
+<img src="/images/error.png" align="right" height="300px" hspace="20px" vspace="100px">
+
 ## How to use it?
 As this project use [RxSwift](https://github.com/ReactiveX/RxSwift) and [Cartography](https://github.com/robb/Cartography), your project *must* include these pods.
 
 You can use it by integrating those two files into your project: `SearchViewModel.swift` and `SearchViewController.swift`.
 
-To use the generic search bar, simply create your own ViewController, respectively ViewModel, that inherits from SearchViewController, respectively SearchViewModel: 
+To use the generic search bar, simply create your own ViewController, respectively ViewModel, that inherits from SearchViewController, respectively SearchViewModel:
 
 - In your ViewController, you have to override the `contentView`, the `loadingView` and the `errorView` with your custom views.
 
@@ -23,15 +26,15 @@ class SportViewController: SearchViewController<Sport> {
     override var contentView: UIView {
         return tableView
     }
-    
+
     override var loadingView: UIView {
         return activityIndicator
     }
-    
+
     override var errorView: UIView {
         return errorLabel
     }
-    
+
     [...]
 }
 ```
@@ -41,7 +44,7 @@ The custom ViewModel class:
 ```Swift
 class SportViewModel: SearchViewModel<Sport> {
     [...]
-    
+
     override func search(with keyword: String) -> Observable<[Sport]> {
         let sports = keyword.isEmpty ? [] : [ Sport(name: "Football"),
                                               Sport(name: "Baseball"),
@@ -49,7 +52,7 @@ class SportViewModel: SearchViewModel<Sport> {
                                               Sport(name: "Soccer"),
                                               Sport(name: "Hockey"),
                                               Sport(name: "Golf")]
-                                           
+
         // Here we just return sports whose name start with the same letter than the keyword.
         let filteredSports = sports.filter { $0.name[$0.name.startIndex] == keyword[keyword.startIndex] }
 
@@ -62,11 +65,11 @@ class SportViewModel: SearchViewModel<Sport> {
                     observer.onCompleted()
                 }
             }
-            
+
             return Disposables.create()
         })
     }
-    
+
     [...]
 }
 ```
@@ -75,7 +78,7 @@ The Model class:
 ```Swift
 class Sport {
     var name: String
-    
+
     init(name: String) {
         self.name = name
     }
