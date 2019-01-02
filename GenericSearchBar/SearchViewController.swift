@@ -16,14 +16,17 @@ class SearchViewController<T>: UIViewController {
     let viewModel: SearchViewModel<T>
     private let bag = DisposeBag()
     
+    /// The view with all the search results.
     var contentView: UIView {
         fatalError("ContentView must be overriden.")
     }
     
+    /// The view that will shown during the search call.
     var loadingView: UIView? {
         return nil
     }
-
+    
+    /// The view that will shown if there is no result.
     var errorView: UIView? {
         return nil
     }
@@ -57,7 +60,7 @@ class SearchViewController<T>: UIViewController {
         view.addSubview(searchBar)
         
         constrain(view, searchBar) { (view, searchBar) in
-            searchBar.top ==  view.top + 33.0
+            searchBar.top ==  view.top + 31.0
             searchBar.leading == view.leading
             searchBar.trailing == view.trailing
             searchBar.height == 44.0

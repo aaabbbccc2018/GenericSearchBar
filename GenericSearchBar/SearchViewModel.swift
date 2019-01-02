@@ -24,20 +24,23 @@ class SearchViewModel<T> {
         return searchSubject.asObserver()
     }
     
-    // MARK: - Search output
     private let contentSubject = PublishSubject<[T]>()
+    
+    /// Results of the search.
     var content: Driver<[T]> {
         return contentSubject.asDriver(onErrorJustReturn: [])
     }
     
-    // MARK: - Loading output
     private let loadingSubject = PublishSubject<Bool>()
+    
+    /// Boolean value that determines whether the search is loading.
     var isLoading: Driver<Bool> {
         return loadingSubject.asDriver(onErrorJustReturn: false)
     }
     
-    // MARK: - Error output
     private let errorSubject = PublishSubject<SearchError?>()
+    
+    /// The error status of the search.
     var error: Driver<SearchError?> {
         return errorSubject.asDriver(onErrorJustReturn: .unkowned)
     }
